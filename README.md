@@ -6,7 +6,7 @@ React Meetups React 17, ReduxToolkit, RTL/Jest Demo
 
 Demo de realizada con React 17, Redux para el manejo de estado y Rtl/Jest para pruebas unitarias.
 
-#1. En relación al header se ha aplicado un escuchador (customHook) para el evento scroll junto a classes de styling para hacer visible o no el elemento ahora fijo segun si se hace scroll jacia arriba.
+#1. En relación al header se ha aplicado un escuchador (customHook) para el evento scroll junto a classes de styling para hacer visible o no el elemento ahora fijo segun si se hace scroll hacia arriba.
 
 #2. En relacion a las rutas se ha implementado React routes modificando la raiz.
 
