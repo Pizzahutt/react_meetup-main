@@ -10,7 +10,7 @@ export default function FavoritesPage() {
   }
 
   return (
-    <section>
+    <section aria-label="My Favorites">
       <h1>My Favorites</h1>
       <ul className={classes.list}>
         {favorites.map((meetup) => (

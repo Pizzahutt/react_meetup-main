@@ -16,29 +16,42 @@ const mockMeetup = {
 };
 
 function renderWithRedux(ui, { initialState, store = configureStore({ reducer: { favorites: favoritesReducer }, preloadedState: initialState }) } = {}) {
-  return render(<Provider store={store}>{ui}</Provider>);
+  return {
+    ...render(<Provider store={store}>{ui}</Provider>),
+    store,
+  };
 }
+
 test("should add a meetup to favorites", async () => {
-  renderWithRedux(<MeetupItem key={mockMeetup?.id} {...mockMeetup} />, { initialState: { favorites: { favorites: [] } } });
+  const { store } = renderWithRedux(<MeetupItem key={mockMeetup?.id} {...mockMeetup} />, {
+    initialState: { favorites: { favorites: [] } },
+  });
+
   const addButton = screen.getByRole("button", { name: /add to favorites/i });
   expect(addButton).toBeInTheDocument();
-  
+
   userEvent.click(addButton);
-  
-  renderWithRedux(<FavoritesPage />, { initialState: { favorites: { favorites: [mockMeetup] } } });
-  const favoritesSection = screen.getByRole("heading", { name: /my favorites/i }).closest("section");
+  expect(store.getState().favorites.favorites).toContainEqual(mockMeetup);
+
+  renderWithRedux(<FavoritesPage />, { store });
+
+  const favoritesSection = screen.getByRole("region", { name: /my favorites/i });
   const removeButton = within(favoritesSection).getByRole("button", { name: /remove from favorites/i });
   expect(removeButton).toBeInTheDocument();
 });
 
 test("should remove a meetup from favorites", async () => {
-  renderWithRedux(<MeetupItem key={mockMeetup?.id} {...mockMeetup} />, { initialState: { favorites: { favorites: [mockMeetup] } } });
+  const { store } = renderWithRedux(<MeetupItem key={mockMeetup?.id} {...mockMeetup} />, {
+    initialState: { favorites: { favorites: [mockMeetup] } },
+  });
+
   const removeButton = screen.getByRole("button", { name: /remove from favorites/i });
   expect(removeButton).toBeInTheDocument();
 
   userEvent.click(removeButton);
+  expect(store.getState().favorites.favorites).toHaveLength(0);
 
-  renderWithRedux(<FavoritesPage />, { initialState: { favorites: { favorites: [] } } });
+  renderWithRedux(<FavoritesPage />, { store });
   const noFavoritesMessage = screen.getByText(/you have no favorites yet/i);
   expect(noFavoritesMessage).toBeInTheDocument();
 });
