@@ -1,32 +1,32 @@
-import { ALL_MEETUP_PAGE, FAVORITES_PAGE, NEW_MEETUP_PAGE } from "./../../utils/constants";
+import { Link } from "react-router-dom";
 import useScrollHeader from "../../util-hooks/useScrollHeader";
-
 import classes from "./MainNavigation.module.css";
 
-
-export default function MainNavigation({ setPage }) {
-  const isVisible = useScrollHeader(); // Use the custom hook
+export default function MainNavigation() {
+  const isVisible = useScrollHeader();
   return (
-    <header className={`${classes.header} ${isVisible ? classes.visible : classes.hidden}`} data-test="navigation-header">
+    <header
+      className={`${classes.header} ${isVisible ? classes.visible : classes.hidden}`}
+      data-test="navigation-header"
+    >
       <div className={classes.logo}>React Meetups</div>
       <nav>
         <ul>
           <li>
-            <a href="#" onClick={() => setPage(ALL_MEETUP_PAGE)}>
+            <Link to="/" data-test="link-all-meetups">
               All Meetups
-            </a>
+            </Link>
           </li>
-
           <li>
-            <a href="#" onClick={() => setPage(NEW_MEETUP_PAGE)}>
+            <Link to="/new-meetup" data-test="link-new-meetup">
               Add New Meetup
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" onClick={() => setPage(FAVORITES_PAGE)}>
+            <Link to="/favorites" data-test="link-favorites">
               My Favorites
               <span className={classes.badge}>{0}</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
