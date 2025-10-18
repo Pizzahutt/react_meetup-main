@@ -24,7 +24,7 @@ export default function MeetupItem({ id, title, address, description, image }) {
           <img src={image} alt={title} />
         </div>
         <div className={classes.content}>
-          <h3>{title}</h3>
+          <h3 data-testid="meetup-title">{title}</h3>
           <address>{address}</address>
           <p>{description}</p>
         </div>
