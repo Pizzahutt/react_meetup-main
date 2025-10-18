@@ -4,7 +4,7 @@ React Meetups React 17, ReduxToolkit, RTL/Jest Demo
 
 # react_meetup-main
 
-Demo de realizada con React 17, Redux para el manejo de estado y Rtl/Jest para pruebas unitarias.
+Demo realizada con React 17, Redux para el manejo de estado y Rtl/Jest para pruebas unitarias.
 
 #1. En relación al header se ha aplicado un escuchador (customHook) para el evento scroll junto a classes de styling para hacer visible o no el elemento ahora fijo segun si se hace scroll hacia arriba.
 
@@ -12,9 +12,9 @@ Demo de realizada con React 17, Redux para el manejo de estado y Rtl/Jest para p
 
 #3. La funcionalidad de favoritos se ha implementado mediante una store con una Slice de Redux, prefiriendo esto a añadir uno o varios contexts de React.
 
-#4. Se han añadido pruebas unitarias implementando react-testing-library en lugar de Enzyme (Enzyme se consideraria deprecado en versiones mas actuales necesitando adaptar el test a posteriori) para los MeetUpItems y la seccion de Favoritos teniendo en cuanta la anterior store de Redux.
+#4. Se han añadido pruebas unitarias implementando react-testing-library en lugar de Enzyme (Enzyme se consideraria deprecado en versiones mas actuales necesitando adaptar el test a posteriori) para los MeetUpItems y la seccion de Favoritos teniendo en cuenta la anterior store de Redux.
 
-Todo esto se ha hecho sin actualizar la version de React ya que entiendo que esto no siempre es practico en bases de codigo mas grandes.
+Todo esto se ha hecho sin actualizar la version de React ya que entiendo que esto no siempre es practico en una base de codigo mas grande.
 
 
 
