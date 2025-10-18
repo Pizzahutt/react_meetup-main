@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import useScrollHeader from "../../util-hooks/useScrollHeader";
 import classes from "./MainNavigation.module.css";
 
 export default function MainNavigation() {
   const isVisible = useScrollHeader();
+    const favoritesCount = useSelector((state) => state.favorites?.favorites?.length);
   return (
     <header
       className={`${classes.header} ${isVisible ? classes.visible : classes.hidden}`}
@@ -25,7 +27,7 @@ export default function MainNavigation() {
           <li>
             <Link to="/favorites" data-test="link-favorites">
               My Favorites
-              <span className={classes.badge}>{0}</span>
+              <span className={classes.badge}>{favoritesCount}</span>
             </Link>
           </li>
         </ul>
