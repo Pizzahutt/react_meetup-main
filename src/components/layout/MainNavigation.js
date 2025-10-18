@@ -1,10 +1,13 @@
 import { ALL_MEETUP_PAGE, FAVORITES_PAGE, NEW_MEETUP_PAGE } from "./../../utils/constants";
+import useScrollHeader from "../../util-hooks/useScrollHeader";
 
 import classes from "./MainNavigation.module.css";
 
+
 export default function MainNavigation({ setPage }) {
+  const isVisible = useScrollHeader(); // Use the custom hook
   return (
-    <header className={classes.header} data-test="navigation-header">
+    <header className={`${classes.header} ${isVisible ? classes.visible : classes.hidden}`} data-test="navigation-header">
       <div className={classes.logo}>React Meetups</div>
       <nav>
         <ul>
