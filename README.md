@@ -1,5 +1,13 @@
 React Meetups React 17, ReduxToolkit, RTL/Jest Demo
+<img width="3189" height="1651" alt="image" src="https://github.com/user-attachments/assets/469bc1f2-3c3b-4eff-a2e5-b221872364e5" />
+
+
 [screen-capture (5).webm](https://github.com/user-attachments/assets/a4e06db3-e912-4457-9ff7-fb0e6de47593)
+<video autoplay loop muted playsinline>
+  <source src="[LINK_URL](https://github.com/user-attachments/assets/a4e06db3-e912-4457-9ff7-fb0e6de47593)" type="video/webm" />
+  Your browser does not support the video tag. View the demo directly: [LINK_URL](LINK_URL)
+</video>
+
 
 # react_meetup-main
 
